@@ -1,0 +1,17 @@
+<div style="font-family: sans-serif; padding: 30px; text-align: center;">
+  <h1>¡Angular está funcionando!</h1>
+  <p>Probando conexión a Laravel y MongoDB...</p>
+
+  <div *ngIf="products().length > 0; else sinProductos" style="margin-top: 20px;">
+    <h3>Productos encontrados:</h3>
+    <ul style="list-style: none; padding: 0;">
+      <li *ngFor="let p of products()" style="padding: 8px; font-weight: bold; color: green;">
+        {{ p.name }} - ${{ p.price }}
+      </li>
+    </ul>
+  </div>
+
+  <ng-template #sinProductos>
+    <p style="color: gray;">Esperando respuesta de la API (o lista vacía)...</p>
+  </ng-template>
+</div>
